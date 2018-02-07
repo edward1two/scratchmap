@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Visits'],
+          ['Philippines', 1],
+          ['Singapore', 1],
+          ['Malaysia', 1],       
+        ]);
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('philippines'));
+
+        chart.draw(data, options);
+      }
+	  
+	        google.charts.load('current', {  
+'packages': ['geochart'],  
+'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'  
+    });  
+       google.charts.setOnLoadCallback(drawMarkersMap);  
+    
+        function drawMarkersMap() {  
+        var data = google.visualization.arrayToDataTable([  
+          ['City',   'Conducted Training', 'Total Participants'],  
+          ['Pasay',    5,    100],  
+          ['Cebu',     4,    100],  
+          ['Davao',     4,    110],  
+          ['Baguio',     10,    210],  
+    
+        ]);  
+    
+        var options = {  
+          region: 'PH',  
+          displayMode: 'markers',  
+            
+          colorAxis: {colors: ['red', 'blue']}  
+            
+        };  
+   
+        var chart = new google.visualization.GeoChart(document.getElementById('world'));  
+        chart.draw(data, options);  
+      
+      }
+    </script>
+  </head>
+  <body>
+    <h1>My Scratch Map<h1>
+    <div id="container" style="width:100%;">
+    <div id="philippines" style="float:left; width:50%;"></div> 
+    <div id="world" style="float:right; width:50%;"></div> 
+	</div>
+  </body>
+</html>
